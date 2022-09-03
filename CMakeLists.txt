@@ -1,8 +1,6 @@
-﻿# CMakeList.txt : Top-level CMake project file, do global configuration
-# and include sub-projects here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿# CMakeLists.txt
 
+cmake_minimum_required (VERSION 3.8)
 project (RelicsTracker)
 
 #Boost
@@ -29,7 +27,7 @@ if (WIN32)
     add_definitions(-D_WIN32_WINNT=${ver})
 endif ()
 
-# Download automatically, you can also just copy the conan.cmake file
+# Download Conan cmake if it does not exist
 if (NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
     message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
     file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.16.1/conan.cmake"
@@ -37,6 +35,7 @@ if (NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
             TLS_VERIFY ON)
 endif ()
 
+# Conan config
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_cmake_run(
         CONANFILE
@@ -46,11 +45,15 @@ conan_cmake_run(
         BUILD missing
 )
 
+# Headers QOL
 include_directories(include)
 
+# Sources
 add_executable(RelicsProfitTracker
         src/main.cpp)
 
+
+# Retreive libs, link to exe
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
 find_package(OpenSSL COMPONENTS Crypto SSL QUIET)
