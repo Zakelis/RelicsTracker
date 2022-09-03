@@ -7,7 +7,7 @@ class RequestHandler {
 public:
     explicit RequestHandler() = default;
 
-    void performGetRequest();
+    bool performGetRequest();
 };
 
 

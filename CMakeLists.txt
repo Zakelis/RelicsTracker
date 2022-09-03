@@ -27,12 +27,42 @@ if (WIN32)
     add_definitions(-D_WIN32_WINNT=${ver})
 endif ()
 
+# Download automatically, you can also just copy the conan.cmake file
+if (NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
+    message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
+    file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.16.1/conan.cmake"
+            "${CMAKE_BINARY_DIR}/conan.cmake"
+            TLS_VERIFY ON)
+endif ()
+
+include(${CMAKE_BINARY_DIR}/conan.cmake)
+conan_cmake_run(
+        CONANFILE
+        conanfile.txt
+        BASIC_SETUP
+        CMAKE_TARGETS
+        BUILD missing
+)
+
 # Headers QOL
 include_directories(include)
 
-include(conan-build/conanbuildinfo.cmake)
- conan_basic_setup()
-
 # Sources
 add_executable(RelicsTracker
-        src/main.cpp)
+        src/main.cpp
+        src/ComputationHandler.cpp
+        src/Object.cpp
+        src/RequestHandler.cpp
+        include/ComputationHandler.h
+        include/Object.h
+        include/RequestHandler.h
+)
+
+include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
+
+find_package(OpenSSL COMPONENTS Crypto SSL QUIET)
+find_package(httplib REQUIRED)
+find_package(ZLIB REQUIRED)
+find_package(nlohmann_json REQUIRED)
+
+target_link_libraries(RelicsTracker ZLIB::ZLIB OpenSSL::SSL OpenSSL::Crypto httplib::httplib nlohmann_json::nlohmann_json)

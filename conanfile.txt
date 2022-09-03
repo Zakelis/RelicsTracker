@@ -1,5 +1,10 @@
  [requires]
- poco/1.9.4
+cpp-httplib/0.11.1
+openssl/3.0.5
+nlohmann_json/3.11.2
+zlib/1.2.12
 
  [generators]
- cmake
+cmake_find_package_multi
+cmake_paths
+cmake_multi

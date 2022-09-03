@@ -1,64 +1,34 @@
 [includedirs]
-C:/Users/stany/.conan/data/poco/1.9.4/_/_/package/827d0093fffd24b2cf1576c6515a7f7707d5d2b9/include
-C:/Users/stany/.conan/data/pcre/8.45/_/_/package/e87a8a0d1a34c63e57cfcfa8aa6088b17582df41/include
-C:/Users/stany/.conan/data/expat/2.4.8/_/_/package/ce5788ba7e3bb7dc834e36b06df66c481f42c99a/include
-C:/Users/stany/.conan/data/sqlite3/3.39.2/_/_/package/1cb7125758648b3fd39bd045f772ec43fd26f71a/include
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/include
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/include
+C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include
+C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/httplib
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/include
+C:/Users/stany/.conan/data/nlohmann_json/3.11.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include
 C:/Users/stany/.conan/data/zlib/1.2.12/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/include
 
 [libdirs]
-C:/Users/stany/.conan/data/poco/1.9.4/_/_/package/827d0093fffd24b2cf1576c6515a7f7707d5d2b9/lib
-C:/Users/stany/.conan/data/pcre/8.45/_/_/package/e87a8a0d1a34c63e57cfcfa8aa6088b17582df41/lib
-C:/Users/stany/.conan/data/expat/2.4.8/_/_/package/ce5788ba7e3bb7dc834e36b06df66c481f42c99a/lib
-C:/Users/stany/.conan/data/sqlite3/3.39.2/_/_/package/1cb7125758648b3fd39bd045f772ec43fd26f71a/lib
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/lib
 C:/Users/stany/.conan/data/zlib/1.2.12/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib
 
 [bindirs]
-C:/Users/stany/.conan/data/pcre/8.45/_/_/package/e87a8a0d1a34c63e57cfcfa8aa6088b17582df41/bin
-C:/Users/stany/.conan/data/sqlite3/3.39.2/_/_/package/1cb7125758648b3fd39bd045f772ec43fd26f71a/bin
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/bin
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/bin
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/bin
 
 [resdirs]
 
 
 [builddirs]
-C:/Users/stany/.conan/data/poco/1.9.4/_/_/package/827d0093fffd24b2cf1576c6515a7f7707d5d2b9/
-C:/Users/stany/.conan/data/expat/2.4.8/_/_/package/ce5788ba7e3bb7dc834e36b06df66c481f42c99a/
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/
+C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/lib/cmake
+C:/Users/stany/.conan/data/nlohmann_json/3.11.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/
 C:/Users/stany/.conan/data/zlib/1.2.12/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/
 
 [libs]
-PocoDataSQLitemd
-PocoDatamd
-PocoEncodingsmd
-PocoMongoDBmd
-PocoNetSSLmd
-PocoCryptomd
-PocoRedismd
-PocoNetmd
-PocoZipmd
-PocoUtilmd
-PocoJSONmd
-PocoXMLmd
-PocoFoundationmd
-pcreposix
-pcre
-pcre16
-pcre32
-libexpatMD
-sqlite3
 libssl
 libcrypto
-bz2
 zlib
 
 [system_libs]
-iphlpapi
+cryptui
 crypt32
 ws2_32
 advapi32
@@ -66,11 +36,7 @@ user32
 bcrypt
 
 [defines]
-XML_STATIC
-PCRE_STATIC=1
-POCO_NO_AUTOMATIC_LIBS
-POCO_STATIC=ON
-POCO_UNBUNDLED
+
 
 [cppflags]
 
@@ -97,301 +63,89 @@ POCO_UNBUNDLED
 
 
 
-[includedirs_poco]
-C:/Users/stany/.conan/data/poco/1.9.4/_/_/package/827d0093fffd24b2cf1576c6515a7f7707d5d2b9/include
+[includedirs_cpp-httplib]
+C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include
+C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/httplib
 
-[libdirs_poco]
-C:/Users/stany/.conan/data/poco/1.9.4/_/_/package/827d0093fffd24b2cf1576c6515a7f7707d5d2b9/lib
-
-[bindirs_poco]
+[libdirs_cpp-httplib]
 
 
-[resdirs_poco]
+[bindirs_cpp-httplib]
 
 
-[builddirs_poco]
-C:/Users/stany/.conan/data/poco/1.9.4/_/_/package/827d0093fffd24b2cf1576c6515a7f7707d5d2b9/
+[resdirs_cpp-httplib]
 
-[libs_poco]
-PocoDataSQLitemd
-PocoDatamd
-PocoEncodingsmd
-PocoMongoDBmd
-PocoNetSSLmd
-PocoCryptomd
-PocoRedismd
-PocoNetmd
-PocoZipmd
-PocoUtilmd
-PocoJSONmd
-PocoXMLmd
-PocoFoundationmd
 
-[system_libs_poco]
-ws2_32
-iphlpapi
+[builddirs_cpp-httplib]
+C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/
+
+[libs_cpp-httplib]
+
+
+[system_libs_cpp-httplib]
 crypt32
+cryptui
+ws2_32
 
-[defines_poco]
-POCO_NO_AUTOMATIC_LIBS
-POCO_STATIC=ON
-POCO_UNBUNDLED
+[defines_cpp-httplib]
 
-[cppflags_poco]
 
+[cppflags_cpp-httplib]
 
-[cxxflags_poco]
 
+[cxxflags_cpp-httplib]
 
-[cflags_poco]
 
+[cflags_cpp-httplib]
 
-[sharedlinkflags_poco]
 
+[sharedlinkflags_cpp-httplib]
 
-[exelinkflags_poco]
 
+[exelinkflags_cpp-httplib]
 
-[sysroot_poco]
 
+[sysroot_cpp-httplib]
 
-[frameworks_poco]
 
+[frameworks_cpp-httplib]
 
-[frameworkdirs_poco]
 
+[frameworkdirs_cpp-httplib]
 
-[rootpath_poco]
-C:/Users/stany/.conan/data/poco/1.9.4/_/_/package/827d0093fffd24b2cf1576c6515a7f7707d5d2b9
 
-[name_poco]
-poco
+[rootpath_cpp-httplib]
+C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
 
-[version_poco]
-1.9.4
+[name_cpp-httplib]
+cpp-httplib
 
-[generatornames_poco]
-cmake_find_package=Poco
-cmake_find_package_multi=Poco
+[version_cpp-httplib]
+0.11.1
 
-[generatorfilenames_poco]
-cmake_find_package=Poco
-cmake_find_package_multi=Poco
+[generatornames_cpp-httplib]
+cmake_find_package=httplib
+cmake_find_package_multi=httplib
 
+[generatorfilenames_cpp-httplib]
 
-[includedirs_pcre]
-C:/Users/stany/.conan/data/pcre/8.45/_/_/package/e87a8a0d1a34c63e57cfcfa8aa6088b17582df41/include
-
-[libdirs_pcre]
-C:/Users/stany/.conan/data/pcre/8.45/_/_/package/e87a8a0d1a34c63e57cfcfa8aa6088b17582df41/lib
-
-[bindirs_pcre]
-C:/Users/stany/.conan/data/pcre/8.45/_/_/package/e87a8a0d1a34c63e57cfcfa8aa6088b17582df41/bin
-
-[resdirs_pcre]
-
-
-[builddirs_pcre]
-
-
-[libs_pcre]
-pcreposix
-pcre
-pcre16
-pcre32
-
-[system_libs_pcre]
-
-
-[defines_pcre]
-PCRE_STATIC=1
-
-[cppflags_pcre]
-
-
-[cxxflags_pcre]
-
-
-[cflags_pcre]
-
-
-[sharedlinkflags_pcre]
-
-
-[exelinkflags_pcre]
-
-
-[sysroot_pcre]
-
-
-[frameworks_pcre]
-
-
-[frameworkdirs_pcre]
-
-
-[rootpath_pcre]
-C:/Users/stany/.conan/data/pcre/8.45/_/_/package/e87a8a0d1a34c63e57cfcfa8aa6088b17582df41
-
-[name_pcre]
-pcre
-
-[version_pcre]
-8.45
-
-[generatornames_pcre]
-cmake_find_package=PCRE
-cmake_find_package_multi=PCRE
-
-[generatorfilenames_pcre]
-
-
-
-[includedirs_expat]
-C:/Users/stany/.conan/data/expat/2.4.8/_/_/package/ce5788ba7e3bb7dc834e36b06df66c481f42c99a/include
-
-[libdirs_expat]
-C:/Users/stany/.conan/data/expat/2.4.8/_/_/package/ce5788ba7e3bb7dc834e36b06df66c481f42c99a/lib
-
-[bindirs_expat]
-
-
-[resdirs_expat]
-
-
-[builddirs_expat]
-C:/Users/stany/.conan/data/expat/2.4.8/_/_/package/ce5788ba7e3bb7dc834e36b06df66c481f42c99a/
-
-[libs_expat]
-libexpatMD
-
-[system_libs_expat]
-
-
-[defines_expat]
-XML_STATIC
-
-[cppflags_expat]
-
-
-[cxxflags_expat]
-
-
-[cflags_expat]
-
-
-[sharedlinkflags_expat]
-
-
-[exelinkflags_expat]
-
-
-[sysroot_expat]
-
-
-[frameworks_expat]
-
-
-[frameworkdirs_expat]
-
-
-[rootpath_expat]
-C:/Users/stany/.conan/data/expat/2.4.8/_/_/package/ce5788ba7e3bb7dc834e36b06df66c481f42c99a
-
-[name_expat]
-expat
-
-[version_expat]
-2.4.8
-
-[generatornames_expat]
-cmake_find_package=EXPAT
-cmake_find_package_multi=expat
-
-[generatorfilenames_expat]
-
-
-
-[includedirs_sqlite3]
-C:/Users/stany/.conan/data/sqlite3/3.39.2/_/_/package/1cb7125758648b3fd39bd045f772ec43fd26f71a/include
-
-[libdirs_sqlite3]
-C:/Users/stany/.conan/data/sqlite3/3.39.2/_/_/package/1cb7125758648b3fd39bd045f772ec43fd26f71a/lib
-
-[bindirs_sqlite3]
-C:/Users/stany/.conan/data/sqlite3/3.39.2/_/_/package/1cb7125758648b3fd39bd045f772ec43fd26f71a/bin
-
-[resdirs_sqlite3]
-
-
-[builddirs_sqlite3]
-
-
-[libs_sqlite3]
-sqlite3
-
-[system_libs_sqlite3]
-
-
-[defines_sqlite3]
-
-
-[cppflags_sqlite3]
-
-
-[cxxflags_sqlite3]
-
-
-[cflags_sqlite3]
-
-
-[sharedlinkflags_sqlite3]
-
-
-[exelinkflags_sqlite3]
-
-
-[sysroot_sqlite3]
-
-
-[frameworks_sqlite3]
-
-
-[frameworkdirs_sqlite3]
-
-
-[rootpath_sqlite3]
-C:/Users/stany/.conan/data/sqlite3/3.39.2/_/_/package/1cb7125758648b3fd39bd045f772ec43fd26f71a
-
-[name_sqlite3]
-sqlite3
-
-[version_sqlite3]
-3.39.2
-
-[generatornames_sqlite3]
-cmake_find_package=SQLite
-cmake_find_package_multi=SQLite
-
-[generatorfilenames_sqlite3]
-cmake_find_package=SQLite3
-cmake_find_package_multi=SQLite3
 
 
 [includedirs_openssl]
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/include
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/include
 
 [libdirs_openssl]
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/lib
 
 [bindirs_openssl]
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/bin
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/bin
 
 [resdirs_openssl]
 
 
 [builddirs_openssl]
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/lib/cmake
 
 [libs_openssl]
 libssl
@@ -432,13 +186,13 @@ bcrypt
 
 
 [rootpath_openssl]
-C:/Users/stany/.conan/data/openssl/1.1.1q/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab
+C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7
 
 [name_openssl]
 openssl
 
 [version_openssl]
-1.1.1q
+3.0.5
 
 [generatornames_openssl]
 cmake_find_package=OpenSSL
@@ -448,68 +202,69 @@ cmake_find_package_multi=OpenSSL
 
 
 
-[includedirs_bzip2]
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/include
+[includedirs_nlohmann_json]
+C:/Users/stany/.conan/data/nlohmann_json/3.11.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include
 
-[libdirs_bzip2]
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib
-
-[bindirs_bzip2]
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/bin
-
-[resdirs_bzip2]
+[libdirs_nlohmann_json]
 
 
-[builddirs_bzip2]
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/
-
-[libs_bzip2]
-bz2
-
-[system_libs_bzip2]
+[bindirs_nlohmann_json]
 
 
-[defines_bzip2]
+[resdirs_nlohmann_json]
 
 
-[cppflags_bzip2]
+[builddirs_nlohmann_json]
+C:/Users/stany/.conan/data/nlohmann_json/3.11.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/
+
+[libs_nlohmann_json]
 
 
-[cxxflags_bzip2]
+[system_libs_nlohmann_json]
 
 
-[cflags_bzip2]
+[defines_nlohmann_json]
 
 
-[sharedlinkflags_bzip2]
+[cppflags_nlohmann_json]
 
 
-[exelinkflags_bzip2]
+[cxxflags_nlohmann_json]
 
 
-[sysroot_bzip2]
+[cflags_nlohmann_json]
 
 
-[frameworks_bzip2]
+[sharedlinkflags_nlohmann_json]
 
 
-[frameworkdirs_bzip2]
+[exelinkflags_nlohmann_json]
 
 
-[rootpath_bzip2]
-C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5
+[sysroot_nlohmann_json]
 
-[name_bzip2]
-bzip2
 
-[version_bzip2]
-1.0.8
+[frameworks_nlohmann_json]
 
-[generatornames_bzip2]
-cmake_find_package=BZip2
-cmake_find_package_multi=BZip2
 
-[generatorfilenames_bzip2]
+[frameworkdirs_nlohmann_json]
+
+
+[rootpath_nlohmann_json]
+C:/Users/stany/.conan/data/nlohmann_json/3.11.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+
+[name_nlohmann_json]
+nlohmann_json
+
+[version_nlohmann_json]
+3.11.2
+
+[generatornames_nlohmann_json]
+cmake_find_package=nlohmann_json
+cmake_find_package_multi=nlohmann_json
+pkg_config=nlohmann_json
+
+[generatorfilenames_nlohmann_json]
 
 
 
@@ -578,20 +333,11 @@ cmake_find_package_multi=ZLIB
 
 
 
-[USER_bzip2]
-[USER_expat]
+[USER_cpp-httplib]
+[USER_nlohmann_json]
 [USER_openssl]
-[USER_pcre]
-[USER_poco]
-[USER_sqlite3]
 [USER_zlib]
-[ENV_poco]
-[ENV_pcre]
-PATH=["C:\Users\stany\.conan\data\pcre\8.45\_\_\package\e87a8a0d1a34c63e57cfcfa8aa6088b17582df41\bin"]
-[ENV_expat]
-[ENV_sqlite3]
-PATH=["C:\Users\stany\.conan\data\sqlite3\3.39.2\_\_\package\1cb7125758648b3fd39bd045f772ec43fd26f71a\bin"]
+[ENV_cpp-httplib]
 [ENV_openssl]
-[ENV_bzip2]
-PATH=["C:\Users\stany\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\bin"]
+[ENV_nlohmann_json]
 [ENV_zlib]

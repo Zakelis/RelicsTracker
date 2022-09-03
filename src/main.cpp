@@ -12,11 +12,22 @@
 
 int main() {
     
-    bool finished = false;
-    while (!finished)
+    bool terminate = false;
+    bool queryDone = false;
+
+    RequestHandler requestHandler;
+
+    while (!terminate)
     {
         if (GetAsyncKeyState(VK_ESCAPE) < 0) {
-            finished = true;
+            terminate = true;
+        }
+        if (!queryDone)
+        {
+            if (requestHandler.performGetRequest())
+            {
+                queryDone = true;
+            }
         }
     }
     return 0;
