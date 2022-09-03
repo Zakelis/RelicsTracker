@@ -1,4 +1,4 @@
-﻿# CMakeLists.txt
+# CMakeLists.txt
 
 cmake_minimum_required (VERSION 3.8)
 project (RelicsTracker)
@@ -27,37 +27,12 @@ if (WIN32)
     add_definitions(-D_WIN32_WINNT=${ver})
 endif ()
 
-# Download Conan cmake if it does not exist
-if (NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
-    message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-    file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.16.1/conan.cmake"
-            "${CMAKE_BINARY_DIR}/conan.cmake"
-            TLS_VERIFY ON)
-endif ()
-
-# Conan config
-include(${CMAKE_BINARY_DIR}/conan.cmake)
-conan_cmake_run(
-        CONANFILE
-        conanfile.txt
-        BASIC_SETUP
-        CMAKE_TARGETS
-        BUILD missing
-)
-
 # Headers QOL
 include_directories(include)
 
+include(build/conanbuildinfo.cmake)
+ conan_basic_setup()
+
 # Sources
-add_executable(RelicsProfitTracker
+add_executable(RelicsTracker
         src/main.cpp)
-
-
-# Retreive libs, link to exe
-include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
-
-find_package(OpenSSL COMPONENTS Crypto SSL QUIET)
-find_package(httplib REQUIRED)
-find_package(nlohmann_json REQUIRED)
-
-target_link_libraries(RelicsProfitTracker OpenSSL::SSL OpenSSL::Crypto httplib::httplib nlohmann_json::nlohmann_json)

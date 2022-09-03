@@ -1,11 +1,15 @@
 // main.cpp : Defines the entry point for the application.
 
-#include "RelicsTracker.h"
+#include <iostream>
+#include <map>
+#include <algorithm>
+#include <cstdlib>
+#include <iostream>
+#include <string>
 
-using namespace std;
+#include <Object.h>
+#include <ComputationHandler.h>
 
-int main()
-{
-	cout << "Hello CMake." << endl;
-	return 0;
+int main() {
+    return 0;
 }
