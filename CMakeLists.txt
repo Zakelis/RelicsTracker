@@ -51,12 +51,11 @@ include_directories(include)
 add_executable(RelicsTracker
         src/main.cpp
         src/ComputationHandler.cpp
-        src/Object.cpp
         src/RequestHandler.cpp
         include/ComputationHandler.h
-        include/Object.h
-        include/RequestHandler.h
-)
+        include/Prime.h
+        include/Relic.h
+        include/RequestHandler.h)
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 

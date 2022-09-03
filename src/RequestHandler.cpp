@@ -8,7 +8,6 @@
 #define CPPHTTPLIB_OPENSSL_SUPPORT
 #include "httplib.h"
 #include <nlohmann/json.hpp>
-#include <Object.h>
 #include "ComputationHandler.h"
 #include "RequestHandler.h"
 #include <windows.h>
@@ -21,11 +20,11 @@ bool RequestHandler::performGetRequest()
     // HTTPS
     httplib::Client cli("https://api.warframe.market");
 
-    httplib::Headers h{
-            {"platform", "pc"},
+    httplib::Headers languageHeader{
             {"language", "en"}
     };
-    auto res = cli.Get("/v1/items", h);
+
+    auto res = cli.Get("/v1/items", languageHeader);
     std::cout << "Request status : " << res->status << std::endl;
     body = res->body;
     nlohmann::json jParser;
@@ -35,7 +34,7 @@ bool RequestHandler::performGetRequest()
 
     std::cout << "Retrieved items : " << inField.size() << std::endl;
 
-    // Filter prime from non-prime
+    // Filter prime and relics.
 
     for (auto& element : inField) {
         std::string itemName = element["item_name"];
@@ -43,16 +42,22 @@ bool RequestHandler::performGetRequest()
         std::string itemUrlName = element["url_name"];
         if (itemName.find(" Prime") != std::string::npos && itemName.find(" Set") == std::string::npos)
         {
-            Object primeObject(itemId, itemName, itemUrlName);
-            computationHandler._allObjects.emplace(itemId, primeObject);
+            Prime prime(itemId, itemName, itemUrlName);
+            computationHandler._allPrimes.emplace(itemId, prime);
+        }
+        else if (itemName.find(" Relic") != std::string::npos)
+        {
+            Relic relic(itemId, itemName, itemUrlName);
+            computationHandler._allRelics.emplace(itemId, relic);
         }
     }
 
-    std::cout << computationHandler._allObjects.size() << " prime objects have been identified." << std::endl;
+    std::cout << computationHandler._allPrimes.size() << " prime objects have been identified." << std::endl;
+    std::cout << computationHandler._allRelics.size() << " relics have been identified." << std::endl;
 
     // Retrieve ducanator data with a GET request
 
-    res = cli.Get("/v1/tools/ducats", h);
+    res = cli.Get("/v1/tools/ducats", languageHeader);
     std::cout << "Request status : " << res->status << std::endl;
     body = res->body;
 
@@ -65,8 +70,8 @@ bool RequestHandler::performGetRequest()
 
     for (auto& element : inField) {
         std::string itemId = element["item"];
-        auto primeObject = computationHandler._allObjects.find(itemId);
-        if (primeObject != computationHandler._allObjects.end())
+        auto primeObject = computationHandler._allPrimes.find(itemId);
+        if (primeObject != computationHandler._allPrimes.end())
         {
             double waPlatPrice = element["wa_price"];
             unsigned int ducats = element["ducats"];
@@ -75,52 +80,39 @@ bool RequestHandler::performGetRequest()
                 primeObject->second._weightedAvgPlatPrice = waPlatPrice;
             }
             else
-                computationHandler._allObjects.erase(primeObject);
+                computationHandler._allPrimes.erase(primeObject);
         }
     }
 
-    std::cout << computationHandler._allObjects.size() << " prime objects are left considered after filtering parts below " << platLimit << " plats." << std::endl;
+    std::cout << computationHandler._allPrimes.size() << " prime objects are left considered after filtering parts below " << platLimit << " plats." << std::endl;
 
-    for (auto& primeObjectData : computationHandler._allObjects)
+    for (auto& primeObjectData : computationHandler._allPrimes)
     {
-        Sleep(500);
-        std::cout << "Current item URL Name : " << primeObjectData.second._objectUrlName << std::endl;
-        std::string url = "/v1/items/" + primeObjectData.second._objectUrlName;
-        res = cli.Get(url.c_str(), h);
+        Sleep(350);
+        std::string url = "/v1/items/" + primeObjectData.second._objectUrlName + "/dropsources";
+        res = cli.Get(url.c_str(), languageHeader);
         body = res->body;
         try {
             parsedJson = jParser.parse(body);
         }
-        catch (const std::exception& ex) {
-            (void)ex;
+        catch (const std::exception&) {
             std::cout << "JSON exception" << std::endl;
             continue;
         }
-        bool found = false;
-        int i = 0;
-        while (!found)
-        {
-            std::string name = parsedJson["payload"]["item"]["items_in_set"][i]["en"]["item_name"];
-            if (name == primeObjectData.second._objectName)
-                found = true;
-            else
-                i++;
-        }
-        inField = parsedJson["payload"]["item"]["items_in_set"][i];
 
-        auto relics = inField["en"]["drop"];
-        if (relics.empty())
-            continue;
-        for (auto& relic : relics) {
-            std::string relicName = relic["name"];
+        auto relics = parsedJson["payload"]["dropsources"];
+
+        for (auto& relicDrop : relics) {
+            std::string relicId = relicDrop["relic"];
             std::string adjustedRelicName;
-            std::string::size_type pos = relicName.find('(');
-            if (pos != std::string::npos)
+            for (auto& relic : computationHandler._allRelics)
             {
-                adjustedRelicName = relicName.substr(0, pos - 1);
+                if (relicId == relic.first)
+                {
+                    adjustedRelicName = relic.second._objectName;
+                    break;
+                }
             }
-            else
-                adjustedRelicName = relicName;
             auto orderedRelicInfo = computationHandler._orderedRelics.find(adjustedRelicName);
             if (orderedRelicInfo == computationHandler._orderedRelics.end())
             {
@@ -137,28 +129,24 @@ bool RequestHandler::performGetRequest()
     }
 
     std::cout << "There are " << computationHandler._orderedRelics.size() << " relics left to keep : " << std::endl << std::endl;
-    if (computationHandler._orderedRelics.empty())
-    {
-        return true; // DEBUGs
-    }
 
     char refFirstLetter = computationHandler._orderedRelics.begin()->first.at(0);
-    std::cout << "Reliques Axi : " << std::endl << std::endl;
+    std::cout << "Axi Relics : " << std::endl << std::endl;
     int i = 0;
     for (auto& relicInfo : computationHandler._orderedRelics) {
         if (relicInfo.first.at(0) != refFirstLetter)
         {
             if (i == 0)
             {
-                std::cout << std::endl << "Reliques Lith : " << std::endl << std::endl;
+                std::cout << std::endl << "Lith Relics : " << std::endl << std::endl;
             }
             else if (i == 1)
             {
-                std::cout << std::endl << "Reliques Meso : " << std::endl << std::endl;
+                std::cout << std::endl << "Meso Relics : " << std::endl << std::endl;
             }
             else
             {
-                std::cout << std::endl << "Reliques Neo : " << std::endl << std::endl;
+                std::cout << std::endl << "Neo Relics: " << std::endl << std::endl;
             }
             refFirstLetter = relicInfo.first.at(0);
             i++;

@@ -61,15 +61,6 @@ build CMakeFiles\RelicsTracker.dir\src\ComputationHandler.cpp.obj: CXX_COMPILER_
   TARGET_COMPILE_PDB = CMakeFiles\RelicsTracker.dir\
   TARGET_PDB = bin\RelicsTracker.pdb
 
-build CMakeFiles\RelicsTracker.dir\src\Object.cpp.obj: CXX_COMPILER__RelicsTracker_RelWithDebInfo ..\..\src\Object.cpp || cmake_object_order_depends_target_RelicsTracker
-  DEFINES = -D_WIN32_WINNT=0x0A00
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MD /Zi /O2 /Ob1 /DNDEBUG
-  INCLUDES = -I..\..\include -IC:\Users\stany\.conan\data\zlib\1.2.12\_\_\package\75ed07303f056424be45ffb582032fe7ad980a95\include -IC:\Users\stany\.conan\data\openssl\3.0.5\_\_\package\1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7\include -IC:\Users\stany\.conan\data\cpp-httplib\0.11.1\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include -IC:\Users\stany\.conan\data\cpp-httplib\0.11.1\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include\httplib -IC:\Users\stany\.conan\data\nlohmann_json\3.11.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include
-  OBJECT_DIR = CMakeFiles\RelicsTracker.dir
-  OBJECT_FILE_DIR = CMakeFiles\RelicsTracker.dir\src
-  TARGET_COMPILE_PDB = CMakeFiles\RelicsTracker.dir\
-  TARGET_PDB = bin\RelicsTracker.pdb
-
 build CMakeFiles\RelicsTracker.dir\src\RequestHandler.cpp.obj: CXX_COMPILER__RelicsTracker_RelWithDebInfo ..\..\src\RequestHandler.cpp || cmake_object_order_depends_target_RelicsTracker
   DEFINES = -D_WIN32_WINNT=0x0A00
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MD /Zi /O2 /Ob1 /DNDEBUG
@@ -87,7 +78,7 @@ build CMakeFiles\RelicsTracker.dir\src\RequestHandler.cpp.obj: CXX_COMPILER__Rel
 #############################################
 # Link the executable bin\RelicsTracker.exe
 
-build bin\RelicsTracker.exe: CXX_EXECUTABLE_LINKER__RelicsTracker_RelWithDebInfo CMakeFiles\RelicsTracker.dir\src\main.cpp.obj CMakeFiles\RelicsTracker.dir\src\ComputationHandler.cpp.obj CMakeFiles\RelicsTracker.dir\src\Object.cpp.obj CMakeFiles\RelicsTracker.dir\src\RequestHandler.cpp.obj | C$:\Users\stany\.conan\data\zlib\1.2.12\_\_\package\75ed07303f056424be45ffb582032fe7ad980a95\lib\zlib.lib C$:\Users\stany\.conan\data\openssl\3.0.5\_\_\package\1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7\lib\libssl.lib C$:\Users\stany\.conan\data\openssl\3.0.5\_\_\package\1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7\lib\libcrypto.lib
+build bin\RelicsTracker.exe: CXX_EXECUTABLE_LINKER__RelicsTracker_RelWithDebInfo CMakeFiles\RelicsTracker.dir\src\main.cpp.obj CMakeFiles\RelicsTracker.dir\src\ComputationHandler.cpp.obj CMakeFiles\RelicsTracker.dir\src\RequestHandler.cpp.obj | C$:\Users\stany\.conan\data\zlib\1.2.12\_\_\package\75ed07303f056424be45ffb582032fe7ad980a95\lib\zlib.lib C$:\Users\stany\.conan\data\openssl\3.0.5\_\_\package\1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7\lib\libssl.lib C$:\Users\stany\.conan\data\openssl\3.0.5\_\_\package\1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7\lib\libcrypto.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MD /Zi /O2 /Ob1 /DNDEBUG
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = C:\Users\stany\.conan\data\zlib\1.2.12\_\_\package\75ed07303f056424be45ffb582032fe7ad980a95\lib\zlib.lib  C:\Users\stany\.conan\data\openssl\3.0.5\_\_\package\1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7\lib\libssl.lib  C:\Users\stany\.conan\data\openssl\3.0.5\_\_\package\1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7\lib\libcrypto.lib  crypt32.lib  cryptui.lib  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

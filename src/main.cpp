@@ -6,7 +6,6 @@
 #include <cstdlib>
 #include <string>
 
-#include <Object.h>
 #include <ComputationHandler.h>
 #include <Windows.h>
 
