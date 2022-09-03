@@ -14,6 +14,6 @@ Follow prompt to indicate [PLThreshold].
 ## Roadmap
 
 - ~Legacy code.~
-- 1.0 : Rework of legacy code, basic flow and output.
+- 1.0 : Entire rewriting of legacy code for POCO lib, basic flow and output.
 - 1.1 : Sorting options.
 - 1.2 : Implement cache. Reduce runtime as no requests have to be made if we use the cache.

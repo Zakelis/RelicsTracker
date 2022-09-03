@@ -4,12 +4,20 @@
 #include <map>
 #include <algorithm>
 #include <cstdlib>
-#include <iostream>
 #include <string>
 
 #include <Object.h>
 #include <ComputationHandler.h>
+#include <Windows.h>
 
 int main() {
+    
+    bool finished = false;
+    while (!finished)
+    {
+        if (GetAsyncKeyState(VK_ESCAPE) < 0) {
+            finished = true;
+        }
+    }
     return 0;
 }
