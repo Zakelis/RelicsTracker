@@ -30,7 +30,7 @@ endif ()
 # Headers QOL
 include_directories(include)
 
-include(build/conanbuildinfo.cmake)
+include(conan-build/conanbuildinfo.cmake)
  conan_basic_setup()
 
 # Sources
