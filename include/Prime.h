@@ -3,9 +3,9 @@
 #ifndef PRIME_H
 #define PRIME_H
 
-#include <vector>
 #include <string>
 #include <utility>
+#include <vector>
 
 class Prime
 {

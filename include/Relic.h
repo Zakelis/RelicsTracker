@@ -3,9 +3,9 @@
 #ifndef RELIC_H
 #define RELIC_H
 
-#include <vector>
 #include <string>
 #include <utility>
+#include <vector>
 
 class Relic
 {
@@ -19,7 +19,6 @@ public:
     std::string _objectId;
     std::string _objectName;
     std::string _objectUrlName;
-    bool        _isVaulted;
 };
 
 
