@@ -1,9 +1,9 @@
+#include "RequestHandler.h"
 #include <algorithm>
 #include <cstdlib>
 #include <iostream>
 #include <map>
 #include <string>
-#include "RequestHandler.h"
 
 void RequestHandler::performGetRequest(nlohmann::json& parsedJson,
     const std::string& uri)
@@ -21,7 +21,6 @@ void RequestHandler::performGetRequest(nlohmann::json& parsedJson,
 
 void RequestHandler::queryEveryItemFromWFM(nlohmann::json& parsedJson)
 {
-    
     performGetRequest(parsedJson, "/v1/items");
 }
 

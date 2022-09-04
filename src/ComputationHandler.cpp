@@ -130,11 +130,9 @@ void ComputationHandler::associateRelicWithPrime(nlohmann::json& dropsourcesJson
         auto orderedRelicInfo = _orderedRelics.find(adjustedRelicName);
         if (orderedRelicInfo == _orderedRelics.end())
         {
-            std::pair<std::string /*relicName*/, std::map<std::string /*itemName*/, double /*WAPrice*/>> relicInfo;
-            std::map<std::string /*itemName*/, double /*WAPrice*/> associatedItems;
+            decltype(_orderedRelics)::mapped_type associatedItems;
             associatedItems.emplace(prime._objectName, prime._weightedAvgPlatPrice);
-            relicInfo.first = adjustedRelicName;
-            relicInfo.second = associatedItems;
+            decltype(_orderedRelics)::value_type relicInfo(adjustedRelicName, associatedItems);
             _orderedRelics.emplace(relicInfo);
         }
         else
