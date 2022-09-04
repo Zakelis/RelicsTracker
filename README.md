@@ -5,7 +5,7 @@ Follow prompt to indicate [PLThreshold].
 
 ### Mandatory args :
 
-- **[PLThreshold]** filters all items which WA price is below given value. Must be a strictly positive integer or float.
+- **[PLThreshold]** filters all items which WA price is below given value. Must be a strictly positive integer or 1-decimal floating number with '.' as separator (42.0 and not 42,0).
 
 ### Optional args :
 
