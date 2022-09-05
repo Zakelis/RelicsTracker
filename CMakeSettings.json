@@ -1,9 +1,9 @@
 ﻿{
   "configurations": [
     {
-      "name": "Release",
+      "name": "RelicsTracker-Release",
       "generator": "Ninja",
-      "configurationType": "RelWithDebInfo",
+      "configurationType": "Release",
       "buildRoot": "${projectDir}\\bin\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
       "cmakeCommandArgs": "",

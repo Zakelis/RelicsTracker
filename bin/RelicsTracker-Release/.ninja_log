@@ -1,0 +1,7 @@
+# ninja log v5
+0	7	0	clean	9992afb1f91dc381
+0	7	0	clean	9992afb1f91dc381
+1	3115	6840968649694483	CMakeFiles/RelicsTracker.dir/src/main.cpp.obj	9b6173c1fd0b31c9
+4	3192	6840968650474718	CMakeFiles/RelicsTracker.dir/src/ComputationHandler.cpp.obj	1682bee327390ccb
+7	3860	6840968657139814	CMakeFiles/RelicsTracker.dir/src/RequestHandler.cpp.obj	221638c9cf7757ac
+3860	5942	6840968678033187	bin/RelicsTracker.exe	835cc8a6450dc040
