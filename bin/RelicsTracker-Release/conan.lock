@@ -2,12 +2,13 @@
  "graph_lock": {
   "nodes": {
    "0": {
-    "options": "cpp-httplib:with_brotli=False\ncpp-httplib:with_openssl=False\ncpp-httplib:with_zlib=False\nopenssl:386=False\nopenssl:capieng_dialog=False\nopenssl:enable_capieng=False\nopenssl:enable_weak_ssl_ciphers=False\nopenssl:no_aria=False\nopenssl:no_asm=False\nopenssl:no_async=False\nopenssl:no_bf=False\nopenssl:no_blake2=False\nopenssl:no_camellia=False\nopenssl:no_cast=False\nopenssl:no_chacha=False\nopenssl:no_cms=False\nopenssl:no_comp=False\nopenssl:no_ct=False\nopenssl:no_deprecated=False\nopenssl:no_des=False\nopenssl:no_dgram=False\nopenssl:no_dh=False\nopenssl:no_dsa=False\nopenssl:no_dso=False\nopenssl:no_ec=False\nopenssl:no_ecdh=False\nopenssl:no_ecdsa=False\nopenssl:no_engine=False\nopenssl:no_filenames=False\nopenssl:no_fips=False\nopenssl:no_gost=False\nopenssl:no_idea=False\nopenssl:no_legacy=False\nopenssl:no_md2=True\nopenssl:no_md4=False\nopenssl:no_mdc2=False\nopenssl:no_module=False\nopenssl:no_ocsp=False\nopenssl:no_pinshared=False\nopenssl:no_rc2=False\nopenssl:no_rc4=False\nopenssl:no_rc5=False\nopenssl:no_rfc3779=False\nopenssl:no_rmd160=False\nopenssl:no_seed=False\nopenssl:no_sm2=False\nopenssl:no_sm3=False\nopenssl:no_sm4=False\nopenssl:no_sock=False\nopenssl:no_srp=False\nopenssl:no_srtp=False\nopenssl:no_sse2=False\nopenssl:no_ssl=False\nopenssl:no_ssl3=False\nopenssl:no_stdio=False\nopenssl:no_threads=False\nopenssl:no_tls1=False\nopenssl:no_ts=False\nopenssl:no_whirlpool=False\nopenssl:no_zlib=False\nopenssl:openssldir=None\nopenssl:shared=False\nzlib:shared=False",
+    "options": "brotli:enable_debug=False\nbrotli:enable_log=False\nbrotli:enable_portable=False\nbrotli:enable_rbit=True\nbrotli:endianness=None\nbrotli:shared=False\nbrotli:target_bits=None\nbzip2:build_executable=True\nbzip2:shared=False\ncpp-httplib:with_brotli=False\ncpp-httplib:with_openssl=False\ncpp-httplib:with_zlib=False\nflac:shared=False\nfreetype:shared=False\nfreetype:subpixel=False\nfreetype:with_brotli=True\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibpng:api_prefix=\nlibpng:shared=False\nlibpng:sse=True\nogg:shared=False\nopenal:shared=False\nopenssl:386=False\nopenssl:capieng_dialog=False\nopenssl:enable_capieng=False\nopenssl:enable_weak_ssl_ciphers=False\nopenssl:no_aria=False\nopenssl:no_asm=False\nopenssl:no_async=False\nopenssl:no_bf=False\nopenssl:no_blake2=False\nopenssl:no_camellia=False\nopenssl:no_cast=False\nopenssl:no_chacha=False\nopenssl:no_cms=False\nopenssl:no_comp=False\nopenssl:no_ct=False\nopenssl:no_deprecated=False\nopenssl:no_des=False\nopenssl:no_dgram=False\nopenssl:no_dh=False\nopenssl:no_dsa=False\nopenssl:no_dso=False\nopenssl:no_ec=False\nopenssl:no_ecdh=False\nopenssl:no_ecdsa=False\nopenssl:no_engine=False\nopenssl:no_filenames=False\nopenssl:no_fips=False\nopenssl:no_gost=False\nopenssl:no_idea=False\nopenssl:no_legacy=False\nopenssl:no_md2=True\nopenssl:no_md4=False\nopenssl:no_mdc2=False\nopenssl:no_module=False\nopenssl:no_ocsp=False\nopenssl:no_pinshared=False\nopenssl:no_rc2=False\nopenssl:no_rc4=False\nopenssl:no_rc5=False\nopenssl:no_rfc3779=False\nopenssl:no_rmd160=False\nopenssl:no_seed=False\nopenssl:no_sm2=False\nopenssl:no_sm3=False\nopenssl:no_sm4=False\nopenssl:no_sock=False\nopenssl:no_srp=False\nopenssl:no_srtp=False\nopenssl:no_sse2=False\nopenssl:no_ssl=False\nopenssl:no_ssl3=False\nopenssl:no_stdio=False\nopenssl:no_threads=False\nopenssl:no_tls1=False\nopenssl:no_ts=False\nopenssl:no_whirlpool=False\nopenssl:no_zlib=False\nopenssl:openssldir=None\nopenssl:shared=False\nsfml:audio=True\nsfml:graphics=True\nsfml:network=True\nsfml:shared=False\nsfml:window=True\nstb:with_deprecated=True\nvorbis:shared=False\nzlib:shared=False",
     "requires": [
      "1",
      "2",
      "4",
-     "3"
+     "3",
+     "5"
     ],
     "path": "..\\..\\conanfile.txt",
     "context": "host"
@@ -41,6 +42,106 @@
     "options": "",
     "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
     "prev": "0",
+    "context": "host"
+   },
+   "5": {
+    "ref": "sfml/2.5.1",
+    "options": "audio=True\ngraphics=True\nnetwork=True\nshared=False\nwindow=True\nbrotli:enable_debug=False\nbrotli:enable_log=False\nbrotli:enable_portable=False\nbrotli:enable_rbit=True\nbrotli:endianness=None\nbrotli:shared=False\nbrotli:target_bits=None\nbzip2:build_executable=True\nbzip2:shared=False\nflac:shared=False\nfreetype:shared=False\nfreetype:subpixel=False\nfreetype:with_brotli=True\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibpng:api_prefix=\nlibpng:shared=False\nlibpng:sse=True\nogg:shared=False\nopenal:shared=False\nstb:with_deprecated=True\nvorbis:shared=False\nzlib:shared=False",
+    "package_id": "d7765125768fb382b42764ce3d31b319f2682d35",
+    "prev": "0",
+    "requires": [
+     "6",
+     "7",
+     "11",
+     "12",
+     "14",
+     "15"
+    ],
+    "context": "host"
+   },
+   "6": {
+    "ref": "opengl/system",
+    "options": "",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "0",
+    "context": "host"
+   },
+   "7": {
+    "ref": "freetype/2.11.1",
+    "options": "shared=False\nsubpixel=False\nwith_brotli=True\nwith_bzip2=True\nwith_png=True\nwith_zlib=True\nbrotli:enable_debug=False\nbrotli:enable_log=False\nbrotli:enable_portable=False\nbrotli:enable_rbit=True\nbrotli:endianness=None\nbrotli:shared=False\nbrotli:target_bits=None\nbzip2:build_executable=True\nbzip2:shared=False\nlibpng:api_prefix=\nlibpng:shared=False\nlibpng:sse=True\nzlib:shared=False",
+    "package_id": "27b2733304cef577b19f699fec3a5bdbefb36d16",
+    "prev": "0",
+    "requires": [
+     "8",
+     "3",
+     "9",
+     "10"
+    ],
+    "context": "host"
+   },
+   "8": {
+    "ref": "libpng/1.6.37",
+    "options": "api_prefix=\nshared=False\nsse=True\nzlib:shared=False",
+    "package_id": "ce650d9f1f1c1c0839cf0694a55c1351ddbed859",
+    "prev": "0",
+    "requires": [
+     "3"
+    ],
+    "context": "host"
+   },
+   "9": {
+    "ref": "bzip2/1.0.8",
+    "options": "build_executable=True\nshared=False",
+    "package_id": "d16a91eadaaf5829b928b12d2f836ff7680d3df5",
+    "prev": "0",
+    "context": "host"
+   },
+   "10": {
+    "ref": "brotli/1.0.9",
+    "options": "enable_debug=False\nenable_log=False\nenable_portable=False\nenable_rbit=True\nendianness=None\nshared=False\ntarget_bits=None",
+    "package_id": "7e52046413f1e13a5fa19e3d410c5b50df627c3f",
+    "prev": "0",
+    "context": "host"
+   },
+   "11": {
+    "ref": "stb/cci.20210910",
+    "options": "with_deprecated=True",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "0",
+    "context": "host"
+   },
+   "12": {
+    "ref": "flac/1.3.3",
+    "options": "shared=False\nogg:shared=False",
+    "package_id": "becff00909fb3d957c6b4ca60fa64d4e6a32a540",
+    "prev": "0",
+    "requires": [
+     "13"
+    ],
+    "context": "host"
+   },
+   "13": {
+    "ref": "ogg/1.3.5",
+    "options": "shared=False",
+    "package_id": "3fb49604f9c2f729b85ba3115852006824e72cab",
+    "prev": "0",
+    "context": "host"
+   },
+   "14": {
+    "ref": "openal/1.21.1",
+    "options": "shared=False",
+    "package_id": "3fb49604f9c2f729b85ba3115852006824e72cab",
+    "prev": "0",
+    "context": "host"
+   },
+   "15": {
+    "ref": "vorbis/1.3.7",
+    "options": "shared=False\nogg:shared=False",
+    "package_id": "becff00909fb3d957c6b4ca60fa64d4e6a32a540",
+    "prev": "0",
+    "requires": [
+     "13"
+    ],
     "context": "host"
    }
   },

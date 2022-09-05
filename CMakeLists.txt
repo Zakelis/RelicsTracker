@@ -63,5 +63,6 @@ find_package(OpenSSL COMPONENTS Crypto SSL QUIET)
 find_package(httplib REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(nlohmann_json REQUIRED)
+find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 
-target_link_libraries(RelicsTracker ZLIB::ZLIB OpenSSL::SSL OpenSSL::Crypto httplib::httplib nlohmann_json::nlohmann_json)
+target_link_libraries(RelicsTracker ZLIB::ZLIB OpenSSL::SSL OpenSSL::Crypto httplib::httplib nlohmann_json::nlohmann_json sfml-graphics sfml-audio)
