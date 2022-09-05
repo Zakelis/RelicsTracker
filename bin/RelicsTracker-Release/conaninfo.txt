@@ -10,6 +10,7 @@
     cpp-httplib/0.11.1
     nlohmann_json/3.Y.Z
     openssl/3.Y.Z
+    sfml/2.Y.Z
     zlib/1.Y.Z
 
 [options]
@@ -26,15 +27,47 @@
     os_build=Windows
 
 [full_requires]
+    brotli/1.0.9:7e52046413f1e13a5fa19e3d410c5b50df627c3f
+    bzip2/1.0.8:d16a91eadaaf5829b928b12d2f836ff7680d3df5
     cpp-httplib/0.11.1:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    flac/1.3.3:becff00909fb3d957c6b4ca60fa64d4e6a32a540
+    freetype/2.11.1:27b2733304cef577b19f699fec3a5bdbefb36d16
+    libpng/1.6.37:ce650d9f1f1c1c0839cf0694a55c1351ddbed859
     nlohmann_json/3.11.2:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    ogg/1.3.5:3fb49604f9c2f729b85ba3115852006824e72cab
+    openal/1.21.1:3fb49604f9c2f729b85ba3115852006824e72cab
+    opengl/system:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     openssl/3.0.5:1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7
+    sfml/2.5.1:d7765125768fb382b42764ce3d31b319f2682d35
+    stb/cci.20210910:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    vorbis/1.3.7:becff00909fb3d957c6b4ca60fa64d4e6a32a540
     zlib/1.2.12:3fb49604f9c2f729b85ba3115852006824e72cab
 
 [full_options]
+    brotli:enable_debug=False
+    brotli:enable_log=False
+    brotli:enable_portable=False
+    brotli:enable_rbit=True
+    brotli:endianness=None
+    brotli:shared=False
+    brotli:target_bits=None
+    bzip2:build_executable=True
+    bzip2:shared=False
     cpp-httplib:with_brotli=False
     cpp-httplib:with_openssl=False
     cpp-httplib:with_zlib=False
+    flac:shared=False
+    freetype:shared=False
+    freetype:subpixel=False
+    freetype:with_brotli=True
+    freetype:with_bzip2=True
+    freetype:with_png=True
+    freetype:with_zlib=True
+    libpng:api_prefix=
+    libpng:shared=False
+    libpng:sse=True
+    ogg:shared=False
+    openal:shared=False
     openssl:386=False
     openssl:capieng_dialog=False
     openssl:enable_capieng=False
@@ -94,6 +127,13 @@
     openssl:no_zlib=False
     openssl:openssldir=None
     openssl:shared=False
+    sfml:audio=True
+    sfml:graphics=True
+    sfml:network=True
+    sfml:shared=False
+    sfml:window=True
+    stb:with_deprecated=True
+    vorbis:shared=False
     zlib:shared=False
 
 [recipe_hash]
