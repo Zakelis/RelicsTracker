@@ -1,10 +1,7 @@
 # ninja log v5
-1	3429	6841181104396258	CMakeFiles/RelicsTracker.dir/src/main.cpp.obj	961cc0c884f848e3
-5	3534	6841181105466481	CMakeFiles/RelicsTracker.dir/src/ComputationHandler.cpp.obj	56627be7712be4c1
-4196	5460	6841181124830882	bin/RelicsTracker.exe	54f97e4fd353e065
-8	4195	6841181112077917	CMakeFiles/RelicsTracker.dir/src/RequestHandler.cpp.obj	fd1471073268bdbb
-2	1678	6841181668454806	build.ninja	c3f2576aeacb5532
-6	3377	6841181721071582	CMakeFiles/RelicsTracker.dir/src/main.cpp.obj	51652a09e9bef7a6
-2	3636	6841181723712186	CMakeFiles/RelicsTracker.dir/src/ComputationHandler.cpp.obj	4b25104ed9538baf
-9	4223	6841181729593684	CMakeFiles/RelicsTracker.dir/src/RequestHandler.cpp.obj	4e21fe9a9b7ab94a
-4224	5192	6841181739380932	bin/RelicsTracker.exe	f1d32ccd084ab877
+0	7	0	clean	9992afb1f91dc381
+0	7	0	clean	9992afb1f91dc381
+1	3115	6840968649694483	CMakeFiles/RelicsTracker.dir/src/main.cpp.obj	9b6173c1fd0b31c9
+4	3192	6840968650474718	CMakeFiles/RelicsTracker.dir/src/ComputationHandler.cpp.obj	1682bee327390ccb
+7	3860	6840968657139814	CMakeFiles/RelicsTracker.dir/src/RequestHandler.cpp.obj	221638c9cf7757ac
+3860	5942	6840968678033187	bin/RelicsTracker.exe	835cc8a6450dc040

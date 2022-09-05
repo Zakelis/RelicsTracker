@@ -1,0 +1,3 @@
+C:/Users/stany/Desktop/RelicsTracker/bin/Release/CMakeFiles/RelicsTracker.dir
+C:/Users/stany/Desktop/RelicsTracker/bin/Release/CMakeFiles/edit_cache.dir
+C:/Users/stany/Desktop/RelicsTracker/bin/Release/CMakeFiles/rebuild_cache.dir

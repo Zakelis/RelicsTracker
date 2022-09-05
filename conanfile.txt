@@ -3,7 +3,6 @@ cpp-httplib/0.11.1
 openssl/3.0.5
 nlohmann_json/3.11.2
 zlib/1.2.12
-sfml/2.5.1
 
  [generators]
 cmake_find_package_multi
