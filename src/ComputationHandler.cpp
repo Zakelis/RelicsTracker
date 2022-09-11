@@ -1,6 +1,13 @@
 #include "ComputationHandler.h"
 
-bool ComputationHandler::rebuildCache(double WAThreshold)
+unsigned int ComputationHandler::_loadingScreenPercentage = 0;
+
+void ComputationHandler::setWAThreshold(double WAThreshold)
+{
+    _WAThreshold = WAThreshold;
+}
+
+bool ComputationHandler::rebuildCache()
 {
     // All items
     nlohmann::json allItemsJson;
@@ -25,7 +32,7 @@ bool ComputationHandler::rebuildCache(double WAThreshold)
         return true;
     }
 
-    filterPrimesBelowGivenWAPrice(ducanatorJson, WAThreshold);
+    filterPrimesBelowGivenWAPrice(ducanatorJson);
 
     // Primes dropsources
     getRelicsForEligiblePrimes();
@@ -57,13 +64,12 @@ void ComputationHandler::filterPrimesAndRelics(nlohmann::json& allItemsJson)
     }
 }
 
-void ComputationHandler::filterPrimesBelowGivenWAPrice(nlohmann::json& ducanatorJson,
-                                                       double WAThreshold)
+void ComputationHandler::filterPrimesBelowGivenWAPrice(nlohmann::json& ducanatorJson)
 {
     nlohmann::json primesData = ducanatorJson["payload"]["previous_day"];
 
     // Compute WAP for each item
-    std::cout << "Filtering primes below " << WAThreshold << " plats" << std::endl;
+    std::cout << "Filtering primes below " << _WAThreshold << " plats" << std::endl;
 
     for (auto& primeData : primesData) {
         std::string itemId = primeData["item"];
@@ -72,7 +78,7 @@ void ComputationHandler::filterPrimesBelowGivenWAPrice(nlohmann::json& ducanator
         {
             double waPlatPrice = primeData["wa_price"];
             unsigned int ducats = primeData["ducats"];
-            if (waPlatPrice >= WAThreshold) {
+            if (waPlatPrice >= _WAThreshold) {
                 primeObject->second._ducats = ducats;
                 primeObject->second._weightedAvgPlatPrice = waPlatPrice;
             }
@@ -81,19 +87,18 @@ void ComputationHandler::filterPrimesBelowGivenWAPrice(nlohmann::json& ducanator
         }
     }
 
-    std::cout << _allPrimes.size() << " primes were worth " << WAThreshold << " plats in the last 48 hours." << std::endl;
+    std::cout << _allPrimes.size() << " primes were worth " << _WAThreshold << " plats in the last 48 hours." << std::endl;
 }
 
 void ComputationHandler::getRelicsForEligiblePrimes()
 {
     std::cout << "Getting the list of valuable relics :" << std::endl;
-    int i = 0;
-    int perc = 0;
+    unsigned int i = 0;
     for (auto& primeData : _allPrimes)
     {
-        perc = i * 100 / _allPrimes.size();
+        _loadingScreenPercentage = i * 100 / _allPrimes.size();
         // Percentage
-        std::cout << "\33\r" << perc << " % complete." << std::flush;
+        std::cout << "\33\r" << _loadingScreenPercentage << " % complete." << std::flush;
 
         nlohmann::json dropsourcesJson;
         _requestHandler.queryPrimeDropsources(dropsourcesJson, primeData.second._objectUrlName);
@@ -107,8 +112,8 @@ void ComputationHandler::getRelicsForEligiblePrimes()
         Sleep(350); // 3 requests per second max
         ++i;
     }
+    _loadingScreenPercentage = 100;
     std::cout << std::endl;
-    std::cout << "As per your criterias, there are " << _orderedRelics.size() << " relics worth refining : " << std::endl << std::endl;
 }
 
 void ComputationHandler::associateRelicWithPrime(nlohmann::json& dropsourcesJson,
@@ -127,42 +132,54 @@ void ComputationHandler::associateRelicWithPrime(nlohmann::json& dropsourcesJson
                 break;
             }
         }
-        auto orderedRelicInfo = _orderedRelics.find(adjustedRelicName);
-        if (orderedRelicInfo == _orderedRelics.end())
+        switch (adjustedRelicName.front())
         {
-            decltype(_orderedRelics)::mapped_type associatedItems;
-            associatedItems.emplace(prime._objectName, prime._weightedAvgPlatPrice);
-            decltype(_orderedRelics)::value_type relicInfo(adjustedRelicName, associatedItems);
-            _orderedRelics.emplace(relicInfo);
+        case 'L':
+            processRelic(_lithRelics, adjustedRelicName, prime);
+            break;
+        case 'M':
+            processRelic(_mesoRelics, adjustedRelicName, prime);
+            break;
+        case 'N':
+            processRelic(_neoRelics, adjustedRelicName, prime);
+            break;
+        case 'A':
+            processRelic(_axiRelics, adjustedRelicName, prime);
+            break;
+        default:
+            break;
         }
-        else
-            orderedRelicInfo->second.emplace(prime._objectName, prime._weightedAvgPlatPrice);
     }
+}
+
+void ComputationHandler::processRelic(std::map<std::string, std::map<std::string, double>>& relicMap,
+    const std::string& adjustedRelicName, const Prime& prime)
+{
+    auto orderedRelicInfo = relicMap.find(adjustedRelicName);
+    if (orderedRelicInfo == relicMap.end())
+    {
+        std::map<std::string, double> associatedItems;
+        associatedItems.emplace(prime._objectName, prime._weightedAvgPlatPrice);
+        std::pair<std::string, std::map<std::string, double>> relicInfo(adjustedRelicName, associatedItems);
+        relicMap.emplace(relicInfo);
+    }
+    else
+        orderedRelicInfo->second.emplace(prime._objectName, prime._weightedAvgPlatPrice);
 }
 
 void ComputationHandler::dumpResults()
 {
-    char refFirstLetter = _orderedRelics.begin()->first.at(0);
-    std::cout << "Axi Relics : " << std::endl << std::endl;
-    int i = 0;
-    for (auto& relicInfo : _orderedRelics) {
-        if (relicInfo.first.at(0) != refFirstLetter)
-        {
-            if (i == 0)
-            {
-                std::cout << std::endl << "Lith Relics : " << std::endl << std::endl;
-            }
-            else if (i == 1)
-            {
-                std::cout << std::endl << "Meso Relics : " << std::endl << std::endl;
-            }
-            else
-            {
-                std::cout << std::endl << "Neo Relics: " << std::endl << std::endl;
-            }
-            refFirstLetter = relicInfo.first.at(0);
-            i++;
-        }
+    dumpRelicMap(_lithRelics, "Lith Relics :");
+    dumpRelicMap(_mesoRelics, "Meso Relics :");
+    dumpRelicMap(_neoRelics, "Neo Relics :");
+    dumpRelicMap(_axiRelics, "Axi Relics :");
+}
+
+void ComputationHandler::dumpRelicMap(std::map<std::string, std::map<std::string, double>>& relicMap,
+    const std::string& message)
+{
+    std::cout << message << std::endl << std::endl;
+    for (auto& relicInfo : relicMap) {
         std::cout << relicInfo.first;
         for (auto relicObjectsInfo : relicInfo.second)
         {
@@ -170,4 +187,5 @@ void ComputationHandler::dumpResults()
         }
         std::cout << std::endl;
     }
+    std::cout << std::endl;
 }

@@ -11,46 +11,37 @@
 #include <map>
 #include <string>
 
-enum WASortingStrategy
-{
-    ASCENDING,
-    DESCENDING
-};
-
-enum OutputStrategy
-{
-    ALL,
-    ITEMS_ONLY,
-    RELICS_ONLY
-};
-
-struct DescendingWAPriceSorter
-{
-    inline bool operator() (const Prime& lhs, const Prime& rhs) const
-    {
-        return (lhs._weightedAvgPlatPrice > rhs._weightedAvgPlatPrice);
-    }
-};
-
 class ComputationHandler {
 public:
     explicit ComputationHandler() = default;
 
-    bool rebuildCache(double WAThreshold);
+    void setWAThreshold(double WAThreshold);
+    bool rebuildCache();
+
+    static unsigned int _loadingScreenPercentage;
+
+    std::map<std::string /*relicName*/, std::map<std::string /*itemName*/, double /*WAPrice*/>> _lithRelics;
+    std::map<std::string /*relicName*/, std::map<std::string /*itemName*/, double /*WAPrice*/>> _mesoRelics;
+    std::map<std::string /*relicName*/, std::map<std::string /*itemName*/, double /*WAPrice*/>> _neoRelics;
+    std::map<std::string /*relicName*/, std::map<std::string /*itemName*/, double /*WAPrice*/>> _axiRelics;
 
 private:
     void filterPrimesAndRelics(nlohmann::json& allItemsJson);
-    void filterPrimesBelowGivenWAPrice(nlohmann::json& ducanatorJson,
-                                       const double WAThreshold);
+    void filterPrimesBelowGivenWAPrice(nlohmann::json& ducanatorJson);
     void getRelicsForEligiblePrimes();
     void associateRelicWithPrime(nlohmann::json& dropsourcesJson,
-                                const Prime& prime);
+        const Prime& prime);
+    void processRelic(std::map<std::string, std::map<std::string, double>>& relicMap,
+        const std::string& adjustedRelicName, const Prime& prime);
     void dumpResults();
+    void dumpRelicMap(std::map<std::string, std::map<std::string, double>>& relicMap,
+        const std::string& message);
 
     RequestHandler _requestHandler;
     std::map<std::string, Prime> _allPrimes;
     std::map<std::string, Relic> _allRelics;
-    std::map<std::string /*relicName*/, std::map<std::string /*itemName*/, double /*WAPrice*/>> _orderedRelics; // TODO identify vaulted relics ?
+
+    int _WAThreshold{0};
 };
 
 

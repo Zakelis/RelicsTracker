@@ -51,11 +51,17 @@ include_directories(include)
 add_executable(RelicsTracker
         src/main.cpp
         src/ComputationHandler.cpp
+        
         src/RequestHandler.cpp
+        src/UIHandler.cpp
         include/ComputationHandler.h
+        
+        include/Enums.h
         include/Prime.h
         include/Relic.h
-        include/RequestHandler.h)
+        include/RequestHandler.h
+        include/Sorters.h
+        include/UIHandler.h)
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
@@ -63,6 +69,6 @@ find_package(OpenSSL COMPONENTS Crypto SSL QUIET)
 find_package(httplib REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(nlohmann_json REQUIRED)
-find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
+find_package(SFML 2.5 COMPONENTS graphics system window audio REQUIRED)
 
-target_link_libraries(RelicsTracker ZLIB::ZLIB OpenSSL::SSL OpenSSL::Crypto httplib::httplib nlohmann_json::nlohmann_json sfml-graphics sfml-audio)
+target_link_libraries(RelicsTracker ZLIB::ZLIB OpenSSL::SSL OpenSSL::Crypto httplib::httplib nlohmann_json::nlohmann_json sfml-graphics sfml-system sfml-window sfml-audio)
