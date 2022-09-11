@@ -51,11 +51,9 @@ include_directories(include)
 add_executable(RelicsTracker
         src/main.cpp
         src/ComputationHandler.cpp
-        
         src/RequestHandler.cpp
         src/UIHandler.cpp
         include/ComputationHandler.h
-        
         include/Enums.h
         include/Prime.h
         include/Relic.h

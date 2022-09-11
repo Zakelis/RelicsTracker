@@ -154,6 +154,50 @@ set(CONAN_LIBS_SFML_RELEASE ${CONAN_PKG_LIBS_SFML_RELEASE} ${CONAN_SYSTEM_LIBS_S
 
 
 #################
+###  BOOST
+#################
+set(CONAN_BOOST_ROOT_RELEASE "C:/.conan/10a1cc/1")
+set(CONAN_INCLUDE_DIRS_BOOST_RELEASE "C:/.conan/10a1cc/1/include")
+set(CONAN_LIB_DIRS_BOOST_RELEASE "C:/.conan/10a1cc/1/lib")
+set(CONAN_BIN_DIRS_BOOST_RELEASE )
+set(CONAN_RES_DIRS_BOOST_RELEASE )
+set(CONAN_SRC_DIRS_BOOST_RELEASE )
+set(CONAN_BUILD_DIRS_BOOST_RELEASE "C:/.conan/10a1cc/1/")
+set(CONAN_FRAMEWORK_DIRS_BOOST_RELEASE )
+set(CONAN_LIBS_BOOST_RELEASE libboost_contract libboost_coroutine libboost_fiber_numa libboost_fiber libboost_context libboost_graph libboost_iostreams libboost_json libboost_locale libboost_log_setup libboost_log libboost_math_c99 libboost_math_c99f libboost_math_c99l libboost_math_tr1 libboost_math_tr1f libboost_math_tr1l libboost_nowide libboost_program_options libboost_random libboost_regex libboost_stacktrace_noop libboost_stacktrace_windbg libboost_stacktrace_windbg_cached libboost_timer libboost_type_erasure libboost_thread libboost_chrono libboost_container libboost_date_time libboost_unit_test_framework libboost_prg_exec_monitor libboost_test_exec_monitor libboost_exception libboost_wave libboost_filesystem libboost_atomic libboost_wserialization libboost_serialization)
+set(CONAN_PKG_LIBS_BOOST_RELEASE libboost_contract libboost_coroutine libboost_fiber_numa libboost_fiber libboost_context libboost_graph libboost_iostreams libboost_json libboost_locale libboost_log_setup libboost_log libboost_math_c99 libboost_math_c99f libboost_math_c99l libboost_math_tr1 libboost_math_tr1f libboost_math_tr1l libboost_nowide libboost_program_options libboost_random libboost_regex libboost_stacktrace_noop libboost_stacktrace_windbg libboost_stacktrace_windbg_cached libboost_timer libboost_type_erasure libboost_thread libboost_chrono libboost_container libboost_date_time libboost_unit_test_framework libboost_prg_exec_monitor libboost_test_exec_monitor libboost_exception libboost_wave libboost_filesystem libboost_atomic libboost_wserialization libboost_serialization)
+set(CONAN_SYSTEM_LIBS_BOOST_RELEASE ole32 dbgeng bcrypt)
+set(CONAN_FRAMEWORKS_BOOST_RELEASE )
+set(CONAN_FRAMEWORKS_FOUND_BOOST_RELEASE "")  # Will be filled later
+set(CONAN_DEFINES_BOOST_RELEASE "-DBOOST_STACKTRACE_USE_NOOP"
+			"-DBOOST_STACKTRACE_USE_WINDBG"
+			"-DBOOST_STACKTRACE_USE_WINDBG_CACHED"
+			"-DBOOST_ALL_NO_LIB")
+set(CONAN_BUILD_MODULES_PATHS_BOOST_RELEASE )
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_BOOST_RELEASE "BOOST_STACKTRACE_USE_NOOP"
+			"BOOST_STACKTRACE_USE_WINDBG"
+			"BOOST_STACKTRACE_USE_WINDBG_CACHED"
+			"BOOST_ALL_NO_LIB")
+
+set(CONAN_C_FLAGS_BOOST_RELEASE "")
+set(CONAN_CXX_FLAGS_BOOST_RELEASE "")
+set(CONAN_SHARED_LINKER_FLAGS_BOOST_RELEASE "")
+set(CONAN_EXE_LINKER_FLAGS_BOOST_RELEASE "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_BOOST_RELEASE_LIST "")
+set(CONAN_CXX_FLAGS_BOOST_RELEASE_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_BOOST_RELEASE_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_BOOST_RELEASE_LIST "")
+
+# Apple Frameworks
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_BOOST_RELEASE "${CONAN_FRAMEWORKS_BOOST_RELEASE}" "_BOOST" "_RELEASE")
+# Append to aggregated values variable
+set(CONAN_LIBS_BOOST_RELEASE ${CONAN_PKG_LIBS_BOOST_RELEASE} ${CONAN_SYSTEM_LIBS_BOOST_RELEASE} ${CONAN_FRAMEWORKS_FOUND_BOOST_RELEASE})
+
+
+#################
 ###  OPENGL
 #################
 set(CONAN_OPENGL_ROOT_RELEASE "C:/Users/stany/.conan/data/opengl/system/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9")
@@ -577,13 +621,14 @@ set(CONAN_LIBS_ZLIB_RELEASE ${CONAN_PKG_LIBS_ZLIB_RELEASE} ${CONAN_SYSTEM_LIBS_Z
 
 ### Definition of global aggregated variables ###
 
-set(CONAN_DEPENDENCIES_RELEASE cpp-httplib openssl nlohmann_json sfml opengl freetype stb flac openal vorbis libpng bzip2 brotli ogg zlib)
+set(CONAN_DEPENDENCIES_RELEASE cpp-httplib openssl nlohmann_json sfml boost opengl freetype stb flac openal vorbis libpng bzip2 brotli ogg zlib)
 
 set(CONAN_INCLUDE_DIRS_RELEASE "C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
 			"C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/httplib"
 			"C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/include"
 			"C:/Users/stany/.conan/data/nlohmann_json/3.11.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
 			"C:/Users/stany/.conan/data/sfml/2.5.1/_/_/package/d7765125768fb382b42764ce3d31b319f2682d35/include"
+			"C:/.conan/10a1cc/1/include"
 			"C:/Users/stany/.conan/data/freetype/2.11.1/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/include"
 			"C:/Users/stany/.conan/data/freetype/2.11.1/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/include/freetype2"
 			"C:/Users/stany/.conan/data/stb/cci.20210910/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
@@ -599,6 +644,7 @@ set(CONAN_INCLUDE_DIRS_RELEASE "C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/
 			"C:/Users/stany/.conan/data/zlib/1.2.12/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/include" ${CONAN_INCLUDE_DIRS_RELEASE})
 set(CONAN_LIB_DIRS_RELEASE "C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/lib"
 			"C:/Users/stany/.conan/data/sfml/2.5.1/_/_/package/d7765125768fb382b42764ce3d31b319f2682d35/lib"
+			"C:/.conan/10a1cc/1/lib"
 			"C:/Users/stany/.conan/data/freetype/2.11.1/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib"
 			"C:/Users/stany/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib"
 			"C:/Users/stany/.conan/data/openal/1.21.1/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib"
@@ -614,14 +660,18 @@ set(CONAN_BIN_DIRS_RELEASE "C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package
 			"C:/Users/stany/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/bin" ${CONAN_BIN_DIRS_RELEASE})
 set(CONAN_RES_DIRS_RELEASE "C:/Users/stany/.conan/data/freetype/2.11.1/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/res" ${CONAN_RES_DIRS_RELEASE})
 set(CONAN_FRAMEWORK_DIRS_RELEASE  ${CONAN_FRAMEWORK_DIRS_RELEASE})
-set(CONAN_LIBS_RELEASE libssl libcrypto sfml-main sfml-graphics-s sfml-window-s sfml-network-s sfml-audio-s sfml-system-s freetype FLAC++ FLAC OpenAL32 vorbisenc vorbisfile vorbis libpng16 bz2 brotlidec-static brotlienc-static brotlicommon-static ogg zlib ${CONAN_LIBS_RELEASE})
-set(CONAN_PKG_LIBS_RELEASE libssl libcrypto sfml-main sfml-graphics-s sfml-window-s sfml-network-s sfml-audio-s sfml-system-s freetype FLAC++ FLAC OpenAL32 vorbisenc vorbisfile vorbis libpng16 bz2 brotlidec-static brotlienc-static brotlicommon-static ogg zlib ${CONAN_PKG_LIBS_RELEASE})
-set(CONAN_SYSTEM_LIBS_RELEASE cryptui crypt32 advapi32 user32 bcrypt gdi32 ws2_32 opengl32 winmm ole32 shell32 User32 ${CONAN_SYSTEM_LIBS_RELEASE})
+set(CONAN_LIBS_RELEASE libssl libcrypto sfml-main sfml-graphics-s sfml-window-s sfml-network-s sfml-audio-s sfml-system-s libboost_contract libboost_coroutine libboost_fiber_numa libboost_fiber libboost_context libboost_graph libboost_iostreams libboost_json libboost_locale libboost_log_setup libboost_log libboost_math_c99 libboost_math_c99f libboost_math_c99l libboost_math_tr1 libboost_math_tr1f libboost_math_tr1l libboost_nowide libboost_program_options libboost_random libboost_regex libboost_stacktrace_noop libboost_stacktrace_windbg libboost_stacktrace_windbg_cached libboost_timer libboost_type_erasure libboost_thread libboost_chrono libboost_container libboost_date_time libboost_unit_test_framework libboost_prg_exec_monitor libboost_test_exec_monitor libboost_exception libboost_wave libboost_filesystem libboost_atomic libboost_wserialization libboost_serialization freetype FLAC++ FLAC OpenAL32 vorbisenc vorbisfile vorbis libpng16 bz2 brotlidec-static brotlienc-static brotlicommon-static ogg zlib ${CONAN_LIBS_RELEASE})
+set(CONAN_PKG_LIBS_RELEASE libssl libcrypto sfml-main sfml-graphics-s sfml-window-s sfml-network-s sfml-audio-s sfml-system-s libboost_contract libboost_coroutine libboost_fiber_numa libboost_fiber libboost_context libboost_graph libboost_iostreams libboost_json libboost_locale libboost_log_setup libboost_log libboost_math_c99 libboost_math_c99f libboost_math_c99l libboost_math_tr1 libboost_math_tr1f libboost_math_tr1l libboost_nowide libboost_program_options libboost_random libboost_regex libboost_stacktrace_noop libboost_stacktrace_windbg libboost_stacktrace_windbg_cached libboost_timer libboost_type_erasure libboost_thread libboost_chrono libboost_container libboost_date_time libboost_unit_test_framework libboost_prg_exec_monitor libboost_test_exec_monitor libboost_exception libboost_wave libboost_filesystem libboost_atomic libboost_wserialization libboost_serialization freetype FLAC++ FLAC OpenAL32 vorbisenc vorbisfile vorbis libpng16 bz2 brotlidec-static brotlienc-static brotlicommon-static ogg zlib ${CONAN_PKG_LIBS_RELEASE})
+set(CONAN_SYSTEM_LIBS_RELEASE cryptui crypt32 advapi32 user32 gdi32 ws2_32 dbgeng bcrypt opengl32 winmm ole32 shell32 User32 ${CONAN_SYSTEM_LIBS_RELEASE})
 set(CONAN_FRAMEWORKS_RELEASE  ${CONAN_FRAMEWORKS_RELEASE})
 set(CONAN_FRAMEWORKS_FOUND_RELEASE "")  # Will be filled later
 set(CONAN_DEFINES_RELEASE "-DAL_LIBTYPE_STATIC"
 			"-DFLAC__NO_DLL"
 			"-DSTB_TEXTEDIT_KEYTYPE=unsigned"
+			"-DBOOST_STACKTRACE_USE_NOOP"
+			"-DBOOST_STACKTRACE_USE_WINDBG"
+			"-DBOOST_STACKTRACE_USE_WINDBG_CACHED"
+			"-DBOOST_ALL_NO_LIB"
 			"-DSFML_STATIC" ${CONAN_DEFINES_RELEASE})
 set(CONAN_BUILD_MODULES_PATHS_RELEASE  ${CONAN_BUILD_MODULES_PATHS_RELEASE})
 set(CONAN_CMAKE_MODULE_PATH_RELEASE "C:/Users/stany/.conan/data/cpp-httplib/0.11.1/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
@@ -629,6 +679,7 @@ set(CONAN_CMAKE_MODULE_PATH_RELEASE "C:/Users/stany/.conan/data/cpp-httplib/0.11
 			"C:/Users/stany/.conan/data/openssl/3.0.5/_/_/package/1cf626f618fdd256dd79c53f4d6cebfc2eaa1df7/lib/cmake"
 			"C:/Users/stany/.conan/data/nlohmann_json/3.11.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
 			"C:/Users/stany/.conan/data/sfml/2.5.1/_/_/package/d7765125768fb382b42764ce3d31b319f2682d35/"
+			"C:/.conan/10a1cc/1/"
 			"C:/Users/stany/.conan/data/opengl/system/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
 			"C:/Users/stany/.conan/data/freetype/2.11.1/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/"
 			"C:/Users/stany/.conan/data/freetype/2.11.1/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib/cmake"

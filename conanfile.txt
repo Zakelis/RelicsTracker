@@ -6,6 +6,4 @@ zlib/1.2.12
 sfml/2.5.1
 
  [generators]
-cmake_find_package_multi
-cmake_paths
-cmake_multi
+cmake_find_package

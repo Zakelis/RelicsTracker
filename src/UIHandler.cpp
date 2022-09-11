@@ -9,7 +9,7 @@ UIHandler::UIHandler()
 	_window.setVerticalSyncEnabled(true);
 
     sf::Image icon;
-    if (icon.loadFromFile("C:/Users/stany/Desktop/RelicsTracker/ressources/Images/Plat.png"))
+    if (icon.loadFromFile("./../../../ressources/Images/Plat.png"))
     {
         _window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     }
@@ -107,19 +107,18 @@ void UIHandler::display()
 // COMMON ELEMENTS SECTION
 void UIHandler::loadCommonRessources()
 {
-	if (!_backgroundTexture.loadFromFile("C:/Users/stany/Desktop/RelicsTracker/ressources/Images/StalkerBackground.jpg"))
+	if (!_backgroundTexture.loadFromFile("./../../../ressources/Images/StalkerBackground.jpg"))
 	{
 		std::cout << "Can't load background texture" << std::endl;
 	}
 	_backgroundSprite.setTexture(_backgroundTexture);
 
-	if (!_textFont.loadFromFile("C:/Users/stany/Desktop/RelicsTracker/ressources/Fonts/rocks_death.ttf"))
+	if (!_textFont.loadFromFile("./../../../ressources/Fonts/rocks_death.ttf"))
 	{
 		std::cout << "Can't load font" << std::endl;
 	}
 
-
-    if (_platTexture.loadFromFile("C:/Users/stany/Desktop/RelicsTracker/ressources/Images/Plat.png"))
+    if (_platTexture.loadFromFile("./../../../ressources/Images/Plat.png"))
     {
         std::cout << "Can't load plat texture" << std::endl;
     }
