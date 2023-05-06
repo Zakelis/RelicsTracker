@@ -22,7 +22,7 @@ UIHandler::UIHandler()
 
 void UIHandler::display()
 {
-    bool initDebug = false; // Console for debug print
+    bool isDebugInit = false; // Print debug in console
     while (_window.isOpen())
     {
         sf::Event event;
@@ -32,76 +32,61 @@ void UIHandler::display()
             {
                 _window.close();
             }
-
-            switch (_screenType)
-            {
-            case WindowScreenType::MAIN_SCREEN:
-                processMainScreenInput(event);
-                break;
-            case WindowScreenType::LOADING_SCREEN:
-                processLoadingScreenInput(event);
-                break;
-            case WindowScreenType::RESULTS_SCREEN:
-                processResultsScreenInput(event);
-                break;
-            case WindowScreenType::HELP_SCREEN:
-                break;
-            default:
-                break;
-            }
-
+            processInput(event);
         }
 
-        if (!initDebug)
+        if (!isDebugInit)
         {
             displayDebugHeader();
-            initDebug = true;
+            isDebugInit = true;
         }
 
-        switch (_screenType)
-        {
-        case WindowScreenType::MAIN_SCREEN:
-            computePlatInputPosition();
-            break;
-        case WindowScreenType::LOADING_SCREEN:
-            computeProgress();
-            break;
-        case WindowScreenType::RESULTS_SCREEN:
-            break;
-        case WindowScreenType::HELP_SCREEN:
-            break;
-        default:
-            break;
-        }
-
-        // Draw elements based on the screen type
+        syncDataStructureToSFML();
         _window.clear();
-
         drawCommonElements();
-
-        switch (_screenType)
-        {
-        case WindowScreenType::MAIN_SCREEN:
-            drawMainScreenElements();
-            break;
-        case WindowScreenType::LOADING_SCREEN:
-            drawLoadingScreenElements();
-            break;
-        case WindowScreenType::RESULTS_SCREEN:
-        {
-            sf::Vector2i position = sf::Mouse::getPosition();
-            drawResultsScreenElements(position.x, position.y);
-            break;
-        }
-        case WindowScreenType::HELP_SCREEN:
-            break;
-        default:
-            break;
-        }
-        
+        drawScreenElements();
         _window.display();
     }
     return;
+}
+
+void UIHandler::processInput(const sf::Event& event)
+{
+    switch (_screenType)
+    {
+    case WindowScreenType::MAIN_SCREEN:
+        processMainScreenInput(event);
+        break;
+    case WindowScreenType::LOADING_SCREEN:
+        processLoadingScreenInput(event);
+        break;
+    case WindowScreenType::RESULTS_SCREEN:
+        processResultsScreenInput(event);
+        break;
+    case WindowScreenType::HELP_SCREEN:
+        break;
+    default:
+        break;
+    }
+}
+
+void UIHandler::syncDataStructureToSFML()
+{
+    switch (_screenType)
+    {
+    case WindowScreenType::MAIN_SCREEN:
+        computePlatInputPosition();
+        break;
+    case WindowScreenType::LOADING_SCREEN:
+        computeProgress();
+        break;
+    case WindowScreenType::RESULTS_SCREEN:
+        break;
+    case WindowScreenType::HELP_SCREEN:
+        break;
+    default:
+        break;
+    }
 }
 
 // COMMON ELEMENTS SECTION
@@ -137,6 +122,29 @@ void UIHandler::drawCommonElements()
 {
     _window.draw(_backgroundSprite);
     _window.draw(_helpText);
+}
+
+void UIHandler::drawScreenElements()
+{
+    switch (_screenType)
+    {
+    case WindowScreenType::MAIN_SCREEN:
+        drawMainScreenElements();
+        break;
+    case WindowScreenType::LOADING_SCREEN:
+        drawLoadingScreenElements();
+        break;
+    case WindowScreenType::RESULTS_SCREEN:
+    {
+        sf::Vector2i position = sf::Mouse::getPosition();
+        drawResultsScreenElements(position.x, position.y);
+        break;
+    }
+    case WindowScreenType::HELP_SCREEN:
+        break;
+    default:
+        break;
+    }
 }
 
 // MAIN SCREEN SECTION
@@ -235,7 +243,7 @@ void UIHandler::loadLoadingScreenRessources()
     _platTexture.setRepeated(true);
 
     _progressSprite.setTexture(_platTexture);
-    _progressSprite.setPosition(210, (_windowHeight - 125) / 2); // Margin on X axis = (1920 - _maxProgressShapeLength) / 2
+    _progressSprite.setPosition(210, static_cast<float>(_windowHeight - 125) / 2); // Margin on X axis = (1920 - _maxProgressShapeLength) / 2
 }
 
 void UIHandler::computeProgress()
@@ -272,45 +280,50 @@ void UIHandler::loadResultsScreenRessources()
     _lithTitle.setCharacterSize(100);
     _lithTitle.setFillColor(sf::Color::White);
     sf::FloatRect titleBbox = _lithTitle.getGlobalBounds();
-    _lithTitle.setPosition(_windowWidth * 0.2 - titleBbox.width / 2, _windowHeight / 4 - titleBbox.height / 2);
+    _lithTitle.setPosition(static_cast<float>(_windowWidth) * 0.2 - titleBbox.width / 2,
+        static_cast<float>(_windowHeight) / 4 - titleBbox.height / 2);
 
     _mesoTitle.setFont(_textFont);
     _mesoTitle.setString("Meso");
     _mesoTitle.setCharacterSize(100);
     _mesoTitle.setFillColor(sf::Color::White);
     titleBbox = _mesoTitle.getGlobalBounds();
-    _mesoTitle.setPosition(_windowWidth * 0.4 - titleBbox.width / 2, _windowHeight / 4 - titleBbox.height / 2);
+    _mesoTitle.setPosition(static_cast<float>(_windowWidth) * 0.4 - titleBbox.width / 2,
+        static_cast<float>(_windowHeight) / 4 - titleBbox.height / 2);
 
     _neoTitle.setFont(_textFont);
     _neoTitle.setString("Neo");
     _neoTitle.setCharacterSize(100);
     _neoTitle.setFillColor(sf::Color::White);
     titleBbox = _neoTitle.getGlobalBounds();
-    _neoTitle.setPosition(_windowWidth * 0.6 - titleBbox.width / 2, _windowHeight / 4 - titleBbox.height / 2);
+    _neoTitle.setPosition(static_cast<float>(_windowWidth) * 0.6 - titleBbox.width / 2,
+        static_cast<float>(_windowHeight) / 4 - titleBbox.height / 2);
 
     _axiTitle.setFont(_textFont);
     _axiTitle.setString("Axi");
     _axiTitle.setCharacterSize(100);
     _axiTitle.setFillColor(sf::Color::White);
     titleBbox = _axiTitle.getGlobalBounds();
-    _axiTitle.setPosition(_windowWidth * 0.8 - titleBbox.width / 2, _windowHeight / 4 - titleBbox.height / 2);
+    _axiTitle.setPosition(static_cast<float>(_windowWidth) * 0.8 - titleBbox.width / 2,
+        static_cast<float>(_windowHeight) / 4 - titleBbox.height / 2);
 
     _relicPlaceholderText.setFont(_textFont);
     _relicPlaceholderText.setString("Select a relic category");
     _relicPlaceholderText.setCharacterSize(75);
     _relicPlaceholderText.setFillColor(sf::Color::White);
     titleBbox = _relicPlaceholderText.getGlobalBounds();
-    _relicPlaceholderText.setPosition(_windowWidth / 4 - titleBbox.width / 2, _windowHeight / 3 * 2 - titleBbox.height / 2);
+    _relicPlaceholderText.setPosition(static_cast<float>(_windowWidth) / 4 - titleBbox.width / 2,
+        static_cast<float>(_windowHeight) / 3 * 2 - titleBbox.height / 2);
 
-    _separatorBetweenRelicsAndRelicsTypes.setSize(sf::Vector2f(_windowWidth, 5));
+    _separatorBetweenRelicsAndRelicsTypes.setSize(sf::Vector2f(static_cast<float>(_windowWidth), 5));
     _separatorBetweenRelicsAndRelicsTypes.setOutlineColor(sf::Color::White);
     _separatorBetweenRelicsAndRelicsTypes.setOutlineThickness(2);
-    _separatorBetweenRelicsAndRelicsTypes.setPosition(0, _windowHeight / 3);
+    _separatorBetweenRelicsAndRelicsTypes.setPosition(0, static_cast<float>(_windowHeight) / 3);
 
-    _separatorBetweenRelicsAndItems.setSize(sf::Vector2f(5, _windowHeight / 3 * 2));
+    _separatorBetweenRelicsAndItems.setSize(sf::Vector2f(5, static_cast<float>(_windowHeight) / 3 * 2));
     _separatorBetweenRelicsAndItems.setOutlineColor(sf::Color::White);
     _separatorBetweenRelicsAndItems.setOutlineThickness(2);
-    _separatorBetweenRelicsAndItems.setPosition(_windowWidth / 5 * 2.8, _windowHeight / 3);
+    _separatorBetweenRelicsAndItems.setPosition(static_cast<float>(_windowWidth) / 5 * 2.8, static_cast<float>(_windowHeight) / 3);
 
     _platTexture.setRepeated(false);
 
@@ -385,7 +398,7 @@ bool UIHandler::changeActiveRelicCategory(sf::Text& _categoryTitle, const int mo
     auto position = _categoryTitle.getPosition();
     auto bounds = _categoryTitle.getGlobalBounds();
 
-    sf::Vector2f mousePosition(mouseX, mouseY);
+    sf::Vector2f mousePosition(static_cast<float>(mouseX), static_cast<float>(mouseY));
 
     if (mousePosition.x >= position.x
         && mousePosition.x <= position.x + bounds.width

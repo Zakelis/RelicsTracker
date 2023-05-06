@@ -1,7 +1,7 @@
 # RelicsTracker
 
 A practical tool that indicates all relics worthy to refine.
-Using non-static last 48 hours trade values ('Weighted Averages') from warframe.market !
+Dynamically making use of last 48 hours weighted  from warframe.market !
 
 Warning : Setting this entry at a low value (<= 35) can take more than a minute. This is because WFM's API only allows 3 requests per second.
 
@@ -20,5 +20,5 @@ Follow prompt to indicate [MinPlatValue]. All drop locations for all eligible it
 
 - ~Legacy code.~
 - ~1.0 : Entire rewriting of legacy code, basic flow and output.~
-- 1.1 : Implement cache. Reduce runtime as no requests have to be made if we use the cache.
-- 1.2 : Sorting options for both modes.
+- 1.1 : Implement results cache. Reduce runtime by bypassing requests.
+- 1.2 : Relic selector cache to filter possesses relics.

@@ -59,7 +59,8 @@ add_executable(RelicsTracker
         include/Relic.h
         include/RequestHandler.h
         include/Sorters.h
-        include/UIHandler.h)
+        include/UIHandler.h
+        )
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 

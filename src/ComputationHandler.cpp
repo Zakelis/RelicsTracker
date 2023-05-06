@@ -96,7 +96,7 @@ void ComputationHandler::getRelicsForEligiblePrimes()
     unsigned int i = 0;
     for (auto& primeData : _allPrimes)
     {
-        _loadingScreenPercentage = i * 100 / _allPrimes.size();
+        _loadingScreenPercentage = i * 100 / static_cast<unsigned int>(_allPrimes.size());
         // Percentage
         std::cout << "\33\r" << _loadingScreenPercentage << " % complete." << std::flush;
 

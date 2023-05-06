@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include <thread>
 
+// Handles data display and ressources loading
 class UIHandler
 {
 public:
@@ -18,9 +19,12 @@ public:
 	void updateLoadingScreen(const int percentage);
 
 private:
-	// Common elements
+	// Basic operations
+	void processInput(const sf::Event& event);
+	void syncDataStructureToSFML();
 	void loadCommonRessources();
 	void drawCommonElements();
+	void drawScreenElements();
 
 	// Main screen
 	void loadMainScreenRessources();

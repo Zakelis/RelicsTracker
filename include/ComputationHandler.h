@@ -41,7 +41,7 @@ private:
     std::map<std::string, Prime> _allPrimes;
     std::map<std::string, Relic> _allRelics;
 
-    int _WAThreshold{0};
+    double _WAThreshold{0};
 };
 
 
